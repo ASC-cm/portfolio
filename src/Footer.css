@@ -72,4 +72,50 @@
     border-top: 1px solid #333;
     padding-top: 10px;
   }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column; /* Stack sections vertically */
+      align-items: center;
+      gap: 10px;
+    }
+  
+    .section {
+      flex: 1 1 100%; 
+      margin-bottom: 10px;
+      text-align: center; 
+    }
+  
+    .section h3 {
+      font-size: 1rem; /* Reduce heading size */
+    }
+  
+    .section p,
+    .section ul,
+    .section .social-icons {
+      font-size: 0.8rem; /* Reduce text size */
+    }
+  
+    .footer {
+      padding: 10px 5px; /* Reduce overall padding */
+    }
+  
+    .footer-bottom {
+      margin-top: 10px; /* Reduce space above footer text */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      gap: 5px; /* Further reduce gaps on very small screens */
+    }
+  
+    .footer {
+      padding: 5px; /* Minimize padding on very small screens */
+    }
+  
+    .footer-bottom {
+      font-size: 0.7rem; /* Smaller footer text */
+    }
+  }
   

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
-import "./Header.css"; // Make sure you have the CSS styles for the navbar
 
 const Header = () => {
   // State to track the visibility of the mobile menu
@@ -11,6 +10,11 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Close the menu when a menu item is selected
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <>
       <header>
@@ -18,19 +22,19 @@ const Header = () => {
           <h1 className="logo">ANI, SIMON CHUKWUEMEKA</h1>
           <nav>
             <ul className={`nav-links ${isMenuOpen ? "active" : ""}`}>
-              <li>
+              <li onClick={closeMenu}>
                 <Link to="/">Home</Link>
               </li>
-              <li>
+              <li onClick={closeMenu}>
                 <Link to="/Skills">Skills</Link>
               </li>
-              <li>
+              <li onClick={closeMenu}>
                 <Link to="/Education">Education</Link>
               </li>
-              <li>
+              <li onClick={closeMenu}>
                 <Link to="https://wa.me/+2347034418309">Hire a Developer</Link>
               </li>
-              <li>
+              <li onClick={closeMenu}>
                 <Link to="/Contact">Contact</Link>
               </li>
             </ul>
