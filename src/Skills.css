@@ -1,0 +1,178 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f9fc;
+  }
+  
+  /* Container styles */
+  .container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin-top: 30px;
+    margin-bottom: 0;
+    overflow: hidden;
+  }
+  
+  /* Section animations */
+  @keyframes fadeInSlide {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .left-section {
+    flex: 0 0 65%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeInSlide 0.6s ease-out;
+  }
+  
+  .right-section {
+    flex: 0 0 30%;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeInSlide 0.8s ease-out;
+  }
+  
+  /* Left-section content */
+  .left-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    animation: fadeInSlide 0.9s ease-out;
+  }
+  
+  .left-section p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #666;
+    animation: fadeInSlide 1s ease-out;
+  }
+  
+  .courses {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+  
+  /* Course cards with staggered animations */
+  .course-card {
+    background-color: #ffffff;
+    padding: 15px;
+    margin: 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlide 0.3s ease-out forwards;
+  }
+  
+  .course-card:nth-child(1) {
+    animation-delay: 0.5s;
+  }
+  .course-card:nth-child(2) {
+    animation-delay: 0.6s;
+  }
+  .course-card:nth-child(3) {
+    animation-delay: 0.7s;
+  }
+  .course-card:nth-child(4) {
+    animation-delay: 0.8s;
+  }
+  .course-card:nth-child(5) {
+    animation-delay: 0.9s;
+  }
+  .course-card:nth-child(6) {
+    animation-delay: 1s;
+  }
+  
+  .course-card:hover {
+    background-color: #f1f1f1;
+    transform: translateY(-5px);
+  }
+  
+  /* Right-section form */
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    animation: fadeInSlide 1.2s ease-out;
+  }
+  
+  form input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    animation: fadeInSlide 1.3s ease-out;
+  }
+  
+  form input:focus {
+    border-color: #0056f7;
+    outline: none;
+  }
+  
+  .apply-button {
+    background-color: #0056f7;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    animation: fadeInSlide 1.4s ease-out;
+  }
+  
+  .apply-button:hover {
+    background-color: #003bb3;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      padding: 20px;
+    }
+  
+    .left-section,
+    .right-section {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  
+    .courses {
+      grid-template-columns: 1fr;
+    }
+  
+    .apply-button {
+      width: 100%;
+    }
+  }
+  

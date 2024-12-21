@@ -1,0 +1,160 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7faff;
+  }
+
+.timeline {
+    padding: 1rem; /* Reduced padding to bring everything closer */
+    background-color: #e9f4f8;
+    border-radius: 8px;
+    text-align: center;
+    position: relative; /* Needed for positioning the vertical line */
+  }
+  
+  .timeline-title {
+    font-size: 2rem;
+    margin-top: 2rem; /* Reduced margin */
+    color: black;
+  }
+  
+  .timeline-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    align-items: center;
+    gap: 0.1rem; /* Reduced gap to bring items closer */
+    position: relative; /* Relative positioning to place the line */
+  }
+  
+  .timeline-item {
+    position: relative;
+    max-width: 600px; /* Adjust width to fit better */
+    padding: 1rem; /* Reduced padding */
+    background: #fff;
+    color: #333;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fade-in 1s forwards;
+    transition: transform 1s ease-out, opacity 1s ease-out;
+  }
+  
+  .timeline-item.in-view {
+    opacity: 1;
+    transform: translateY(0);
+    animation: fade-in 1s forwards;
+  }
+  
+  /* Vertical line in the center of the timeline */
+  .timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px; /* Width of the vertical line */
+    background-color: #333;
+    left: 50%; /* Center the line horizontally */
+    transform: translateX(-50%); /* Adjust positioning to truly center the line */
+  }
+  
+  /* Animations for left and right side items */
+  .timeline-left {
+    align-self: flex-start; /* Align to the left edge */
+    animation-delay: 0.3s;
+  }
+  
+  .timeline-right {
+    align-self: flex-end; /* Align to the right edge */
+    animation-delay: 0.6s;
+  }
+  
+  .timeline-item h3 {
+    margin-top: 0;
+    color: #333;
+  }
+  
+  .timeline-item p {
+    margin: 0.5rem 0;
+  }
+  
+  /* Animation keyframe */
+  @keyframes fade-in {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .view-more {
+    margin-top: 1rem; /* Adjusted margin */
+    padding: 0.8rem 1.5rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    box-shadow: 2px 3px 4px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .view-more:hover {
+    background-color: white;
+    box-shadow: 2px 5px;
+    color: #2a60ff;
+  }
+  
+  .view-less {
+    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    background-color: #dc3545; /* Red color for distinction */
+    color: white;
+    border: none;
+    box-shadow: 2px 3px 4px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .view-less:hover {
+    background-color: white;
+    box-shadow: 2px 5px;
+    color: #dc3545;
+  }
+
+  .cert {
+    padding: 20px;
+    background-color: #e9f4f8;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .achieve {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .achieve h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .achieve ul {
+    padding: 0;
+  }
+  
+  .achieve li {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #555;
+    transition: color 0.3s;
+  }
+  
+  .achieve li:hover {
+    color: #007bff;
+  }
+  
+  
+  
