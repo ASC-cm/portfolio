@@ -1,6 +1,7 @@
 import React from "react";
 import "../contact.css";
 import { motion } from "framer-motion";
+import FlowerAnimation from "../pages/FlowerAnimation";
 
 const Contact = () => {
   const animationVariants = [
@@ -47,6 +48,7 @@ const Contact = () => {
 
   return (
     <section className="contact-section">
+       <FlowerAnimation />
       <div className="contact-header">
         <span className="subtitle">Get in touch</span>
         <h1>I would like to hear from you.</h1>

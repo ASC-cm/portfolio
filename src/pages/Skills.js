@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../Skills.css";
+import FlowerAnimation from "../pages/FlowerAnimation";
+
 
 const Skills = () => {
   const [animate, setAnimate] = useState(false);
@@ -11,6 +13,7 @@ const Skills = () => {
 
   return (
     <div className="container">
+       <FlowerAnimation />
       <div className={`left-section ${animate ? "slide-in-left" : ""}`}>
         <h1>Software Development Skills</h1>
         <p>

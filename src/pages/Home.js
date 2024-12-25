@@ -1,6 +1,7 @@
 import React from 'react';
 import useTypingEffect from '../useTypingEffect'; 
 import { useNavigate } from "react-router-dom";
+import FlowerAnimation from "../pages/FlowerAnimation";
 
 const phrases = [
   "Hi, I'm Ani, Simon Chukwuemeka.",
@@ -47,6 +48,7 @@ const Home = () => {
     <>
       <section className="hero">
         <div className="text-content">
+          <FlowerAnimation />
           <div id="dynamicText">{displayText}</div>
           <h3>To be proactive with  a<span className="highlight"> Quick and Positive Response</span>, which will utilize the<br /> Professional and Technical Skills Developed through past work experience</h3>
           <div className='link-to'>
@@ -137,14 +139,14 @@ const Home = () => {
               <img src="images/work8.png" alt="clothing Website Hover" class="hover-img"></img>
               <h3>Clothing E-commerce Website</h3>
               <p>A website where customers can place order on wears, be it Juwelries, Cloths or Foot-wears and pay with either card or tranfer.</p>
-              <a href='https://github.com/ASC-cm'>View Project codes</a>
+              <a href='https://github.com/ASC-cm/E-commerce-site.git'>View Project codes</a>
             </div>
             <div class="project-card">
               <img src="images/work4.png" alt="Tech Website" class="default-img" />
               <img src="images/work5.png" alt="Tech Website Hover" class="hover-img" />
               <h3>Technology Website</h3>
               <p>A website for talented developers and companies that need there skills, and for people willing or that want to undergo any tech skills.</p>
-              <a href='https://github.com/ASC-cm'>View Project codes</a>
+              <a href='https://github.com/ASC-cm/my-app.git'>View Project codes</a>
             </div>
             <div class="project-card">
               <img src="images/work3.png" alt="resturant Website" class="default-img" />

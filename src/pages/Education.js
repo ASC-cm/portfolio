@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import FlowerAnimation from "../pages/FlowerAnimation";
+
 import "../Education.css"
 
 const Education = () => {
@@ -82,6 +84,7 @@ const Education = () => {
     return (
         <>
           <section className="timeline">
+            <FlowerAnimation />
             <h2 className="timeline-title">Education & Achievements</h2>
             <div className="timeline-container">
                   {timelineItems.slice(0, visibleItems).map((item, index) => (
