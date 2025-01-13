@@ -50,7 +50,8 @@ const Home = () => {
         <div className="text-content">
           <FlowerAnimation />
           <div id="dynamicText">{displayText}</div>
-          <h3>To be proactive with  a<span className="highlight"> Quick and Positive Response</span>, which will utilize the<br /> Professional and Technical Skills Developed through past work experience</h3>
+          <h3>Proactive with  a<span className="highlight"> Quick and Positive Response</span>
+          </h3>
           <div className='link-to'>
             <a href='https://www.linkedin.com/in/ASC-cm'><img src='images/linked.png' alt='linked' width={20} height={20}></img></a>
             <a href='https://github.com/ASC-cm'><img src='images/github.png' alt='github' width={20} height={20}></img></a>
