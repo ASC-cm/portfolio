@@ -50,7 +50,7 @@ const Home = () => {
         <div className="text-content">
           <FlowerAnimation />
           <div id="dynamicText">{displayText}</div>
-          <h3>Proactive with  a<span className="highlight"> Quick and Positive Response</span>
+          <h3>Proactive with a<span className="highlight"> Quick and Positive Response</span>, try us Today
           </h3>
           <div className='link-to'>
             <a href='https://www.linkedin.com/in/ASC-cm'><img src='images/linked.png' alt='linked' width={20} height={20}></img></a>
