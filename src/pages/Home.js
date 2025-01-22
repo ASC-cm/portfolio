@@ -1,7 +1,7 @@
 import React from 'react';
 import useTypingEffect from '../useTypingEffect'; 
 import { useNavigate } from "react-router-dom";
-import FlowerAnimation from "../pages/FlowerAnimation";
+
 
 const phrases = [
   "Hi, I'm Ani, Simon Chukwuemeka.",
@@ -48,7 +48,6 @@ const Home = () => {
     <>
       <section className="hero">
         <div className="text-content">
-          <FlowerAnimation />
           <div id="dynamicText">{displayText}</div>
           <h3>Proactive with a<span className="highlight"> Quick and Positive Response</span>, try us Today
           </h3>
@@ -164,10 +163,10 @@ const Home = () => {
               <a href='https://github.com/ASC-cm'>View Project codes</a>
             </div>
             <div class="project-card">
-              <img src="https://via.placeholder.com/150" alt="Blog Website" class="default-img" />
-              <img src="https://via.placeholder.com/150/FF00FF" alt="Blog Website Hover" class="hover-img" />
-              <h3>Blog Website</h3>
-              <p>A platform to share articles, news, and thoughts with the world.</p>
+            <img src="images/Hotel.png" alt="Tech Website" class="default-img" />
+              <img src="images/Hotel2.png" alt="Tech Website Hover" class="hover-img" />
+              <h3>Hotel website</h3>
+              <p>A complete hotel website with the backend integration via Django</p>
               <a href='https://github.com/ASC-cm'>View Project codes</a>
             </div>
             <div class="project-card">

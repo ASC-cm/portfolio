@@ -30,6 +30,9 @@ header {
   align-items: center;
   flex-wrap: wrap; 
 }
+.hamburger {
+  display: none;
+}
 
 .logo {
   font-size: 1.5rem;
@@ -266,6 +269,10 @@ header {
     line-height: 1.4; /* Maintain readability */
   }
 
+  .text-content h3{
+    display: none;
+  }
+
   #dynamicText {
     font-size: 1.8rem; /* Slightly reduce font size */
     margin-bottom: 20px; /* Add spacing below dynamic text */
@@ -300,6 +307,9 @@ header {
     margin-top: 15px; /* Add top margin to push downward */
     font-size: 0.8rem; /* Further reduce font size for small screens */
     line-height: 1.4; /* Maintain readability */
+  }
+  .text-content h3{
+    display: none;
   }
 
   #dynamicText {
@@ -365,22 +375,14 @@ header {
     height: 20px;
   }
   .link-to {
-    gap: 8px; 
-    margin-left: 20px;
-  }
+    display: none;
+   }
 }
 
 /* For mobile devices (480px and below) */
 @media (max-width: 480px) {
   .link-to {
-    flex-direction: row; 
-    gap: 6px; 
-    margin-top: 10px; 
-    margin-left: 20px;
-  }
-  .link-to img {
-    width: 18px; 
-    height: 18px;
+   display: none;
   }
 }
 
