@@ -127,6 +127,9 @@ body {
     background-color: #e9f4f8;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
   
   .achieve {
@@ -156,5 +159,21 @@ body {
     color: #007bff;
   }
   
+   .view-moreover {
+    margin-top: 1rem; /* Adjusted margin */
+    padding: 0.8rem 1.5rem;
+    background-color: #007bff;
+    text-align: center;
+    color: white;
+    border: none;
+    box-shadow: 2px 3px 4px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
   
+  .view-moreover:hover {
+    background-color: white;
+    box-shadow: 2px 5px;
+    color: #2a60ff;
+  }
   

@@ -80,58 +80,69 @@ const Education = () => {
         "Certificate for Information Technology and Internet Opportunities (Career Link and Skill Acquisition Company)",
         "Degree Certificate in Botany and Ecological Studies (University of Uyo)",
       ];
+       const handleDownload = () => {
+         const link = document.createElement("a");
+         link.href = "/cv.pdf"; // File inside the public folder
+         link.download = "ANI_SIMON_CHUKWUEMEKA_CV.pdf"; // Set the filename
+         document.body.appendChild(link);
+         link.click();
+         document.body.removeChild(link);
+       };
     
     return (
-        <>
-          <section className="timeline">
-            <h2 className="timeline-title">Education & Achievements</h2>
-            <div className="timeline-container">
-                  {timelineItems.slice(0, visibleItems).map((item, index) => (
+      <>
+        <section className="timeline">
+          <h2 className="timeline-title">Education & Achievements</h2>
+          <div className="timeline-container">
+            {timelineItems.slice(0, visibleItems).map((item, index) => (
               <div
                 key={index}
-                className={`timeline-item timeline-${index % 2 === 0 ? 'left' : 'right'}`}
-                data-aos={index % 2 === 0 ? 'fade-left' : 'fade-right'}
+                className={`timeline-item timeline-${
+                  index % 2 === 0 ? "left" : "right"
+                }`}
+                data-aos={index % 2 === 0 ? "fade-left" : "fade-right"}
               >
                 <h3>{item.title}</h3>
                 <p>{item.date}</p>
                 <p>{item.description}</p>
               </div>
+            ))}
+          </div>
+          <div className="timeline-buttons">
+            {visibleItems < timelineItems.length ? (
+              <button className="view-more" onClick={handleViewMore}>
+                View More
+              </button>
+            ) : (
+              <button className="view-less" onClick={handleShowLess}>
+                Show Less
+              </button>
+            )}
+          </div>
+        </section>
+        <hr />
+        <section className="cert">
+          <div className="achieve">
+            <h2>Certifications and Achievements</h2>
+            <ul>
+              {achievements.map((achievement, index) => (
+                <motion.li
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.2 }}
+                >
+                  {achievement}
+                </motion.li>
               ))}
-            </div>
-            <div className="timeline-buttons">
-                {visibleItems < timelineItems.length ? (
-                  <button className="view-more" onClick={handleViewMore}>
-                     View More
-                  </button>
-                ) : (
-                  <button className="view-less" onClick={handleShowLess}>
-                    Show Less
-                  </button>
-                )}
-            </div>
-          </section>
-          <hr />
-          <section className='cert'>
-            <div className='achieve'>
-                <h2>Certifications and Achievements</h2>
-                <ul>
-                    {achievements.map((achievement, index) => (
-                    <motion.li
-                        key={index}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.2 }}
-                    >
-                      {achievement}
-                    </motion.li>
-                    ))}
-                </ul>
-            </div>
-          </section>
-        </>
-        
-    
-    )
+            </ul>
+          </div>
+          <button className="view-moreover" onClick={handleDownload}>
+            Download CV
+          </button>
+        </section>
+      </>
+    );
 }
 
 export default Education;
