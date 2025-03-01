@@ -1,11 +1,27 @@
 import React from 'react';
 import useTypingEffect from '../useTypingEffect'; 
 import { useNavigate } from "react-router-dom";
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaPython, FaGitAlt } from "react-icons/fa";
+import { SiNextdotjs, SiTailwindcss, SiDjango, SiPostgresql } from "react-icons/si";
+
 
 
 const phrases = [
   "Hi, I'm Ani, Simon Chukwuemeka.",
   "I am a Full-stack web developer.",
+];
+
+const services = [
+  { name: "HTML", proficiency: "100%", icon: <FaHtml5 /> },
+  { name: "CSS", proficiency: "100%", icon: <FaCss3Alt /> },
+  { name: "JavaScript", proficiency: "80%", icon: <FaJs /> },
+  { name: "React.js", proficiency: "100%", icon: <FaReact /> },
+  { name: "Next.js", proficiency: "60%", icon: <SiNextdotjs /> },
+  { name: "Tailwind CSS", proficiency: "60%", icon: <SiTailwindcss /> },
+  { name: "Python", proficiency: "50%", icon: <FaPython /> },
+  { name: "Django", proficiency: "100%", icon: <SiDjango /> },
+  { name: "PostgreSQL", proficiency: "70%", icon: <SiPostgresql /> },
+  { name: "Version Control", proficiency: "100%", icon: <FaGitAlt /> },
 ];
 
 const Home = () => {
@@ -111,76 +127,32 @@ const Home = () => {
           <img src="images/me.jpg" alt="Developer 1" className="circular" />
         </div>
       </section>
-      <section id="skills">
-        <h2>My Skills</h2>
-        <p>Here are my skills</p>
-        <hr />
-        <div class="skills-container">
-          <div className="skill">
-            <p>HTML</p>
-            <p className="bar">Proficiency: 100%</p>
-            <div className="progress-bar">
-              <div className="progress"></div>
-            </div>
-          </div>
-          <div className="skill">
-            <p>CSS</p>
-            <p className="bar">Proficiency: 100%</p>
-            <div className="progress-bar">
-              <div className="progress"></div>
-            </div>
-          </div>
-          <div className="skill">
-            <p>JavaScript</p>
-            <p className="bar">Proficiency: 80%</p>
-            <div className="progress-bar">
-              <div className="progress1"></div>
-            </div>
-          </div>
-          <div className="skill">
-            <p>React.js</p>
-            <p className="bar">Proficiency: 100%</p>
-            <div className="progress-bar">
-              <div className="progress"></div>
-            </div>
-          </div>
-          <div className="skill">
-            <p>Next.js</p>
-            <p className="bar">Proficiency: 80%</p>
-            <div className="progress-bar">
-              <div className="progress1"></div>
-            </div>
-          </div>
-          <div className="skill">
-            <p>Tailwind CSS</p>
-            <p className="bar">Proficiency: 60%</p>
-            <div className="progress-bar">
-              <div className="progress2"></div>
-            </div>
-          </div>
-          <div className="skill">
-            <p>Python</p>
-            <p className="bar">Proficiency: 50%</p>
-            <div className="progress-bar">
-              <div className="progress3"></div>
-            </div>
-          </div>
-          <div className="skill">
-            <p>Django</p>
-            <p className="bar">Proficiency: 100%</p>
-            <div className="progress-bar">
-              <div className="progress"></div>
-            </div>
-          </div>
-          <div className="skill">
-            <p>React-native</p>
-            <p className="bar">Proficiency: 60%</p>
-            <div className="progress-bar">
-              <div className="progress"></div>
-            </div>
-          </div>
+      {/* Skills Section */}
+      <div className="dashboard-container">
+        <div className="header">
+          <h1>My Skills</h1>
+          <button
+            className="sign-in-button"
+            onClick={() => navigate("/Skills")}
+          >
+            View More →
+          </button>
         </div>
-      </section>
+
+        <div className="services-grid">
+          {services.map((service, index) => (
+            <div key={index} className="service-card">
+              {/* Show Proficiency */}
+              <span className="proficiency-label">
+                {service.proficiency ? service.proficiency : "No Data"}
+              </span>
+              <div className="service-icon">{service.icon}</div>
+              <p className="service-name">{service.name}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
       <section className="projects" id="works">
         <h2>My Works</h2>
         <p>Here are some of my projects hosted on github:</p>
@@ -189,12 +161,12 @@ const Home = () => {
             <img
               src="images/work1.png"
               alt="clothing Website"
-              class="default-img"
+              className="default-img"
             ></img>
             <img
               src="images/work8.png"
               alt="clothing Website Hover"
-              class="hover-img"
+              className="hover-img"
             ></img>
             <h3>Clothing E-commerce Website</h3>
             <p>
@@ -206,16 +178,16 @@ const Home = () => {
               View Project codes
             </a>
           </div>
-          <div class="project-card">
+          <div className="project-card">
             <img
               src="images/work4.png"
               alt="Tech Website"
-              class="default-img"
+              className="default-img"
             />
             <img
               src="images/work5.png"
               alt="Tech Website Hover"
-              class="hover-img"
+              className="hover-img"
             />
             <h3>Technology Website</h3>
             <p>
@@ -227,16 +199,16 @@ const Home = () => {
               View Project codes
             </a>
           </div>
-          <div class="project-card">
+          <div className="project-card">
             <img
               src="images/work3.png"
               alt="resturant Website"
-              class="default-img"
+              className="default-img"
             />
             <img
               src="images/work9.png"
               alt="resturant Website Hover"
-              class="hover-img"
+              className="hover-img"
             />
             <h3>Resturant Website</h3>
             <p>
@@ -245,16 +217,16 @@ const Home = () => {
             </p>
             <a href="https://github.com/ASC-cm">View Project codes</a>
           </div>
-          <div class="project-card">
+          <div className="project-card">
             <img
               src="images/work2.png"
               alt="Tech Website"
-              class="default-img"
+              className="default-img"
             />
             <img
               src="images/work6.png"
               alt="Tech Website Hover"
-              class="hover-img"
+              className="hover-img"
             />
             <h3>E-learning Tech Website</h3>
             <p>
@@ -263,36 +235,36 @@ const Home = () => {
             </p>
             <a href="https://github.com/ASC-cm">View Project codes</a>
           </div>
-          <div class="project-card">
+          <div className="project-card">
             <img
               src="images/Hotel.png"
               alt="Tech Website"
-              class="default-img"
+              className="default-img"
             />
             <img
-              src="images/Hotel2.png"
+              src="images/Hotel 2.png"
               alt="Tech Website Hover"
-              class="hover-img"
+              className="hover-img"
             />
             <h3>Hotel website</h3>
             <p>
-              A complete hotel website with the backend integration via Django
+              A complete hotel website with the backend integration via Django_rest_framework.
             </p>
             <a href="https://github.com/ASC-cm">View Project codes</a>
           </div>
-          <div class="project-card">
+          <div className="project-card">
             <img
-              src="https://via.placeholder.com/150"
+              src="images/blog1.png"
               alt="Photography Website"
-              class="default-img"
+              className="default-img"
             />
             <img
-              src="https://via.placeholder.com/150/00FFFF"
+              src="images/blog2.png"
               alt="Photography Website Hover"
-              class="hover-img"
+              className="hover-img"
             />
-            <h3>Photography Website</h3>
-            <p>A portfolio for showcasing stunning photography collections.</p>
+            <h3>A Blog Website</h3>
+            <p>A News Blog site For adding,editing and deleting blog news, fully interacting with the backkend.</p>
             <a href="https://github.com/ASC-cm">View Project codes</a>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import "../contact.css";
+import "../Styles/contact.css";
 import { motion } from "framer-motion";
 
 

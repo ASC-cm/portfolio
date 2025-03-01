@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-
-
-import "../Education.css"
+import "../Styles/Education.css";
 
 const Education = () => {
     document.addEventListener("DOMContentLoaded", function () {

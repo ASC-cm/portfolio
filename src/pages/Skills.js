@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../Skills.css";
+import "../Styles/Skills.css";
 
 
 const Skills = () => {

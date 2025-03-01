@@ -6,7 +6,7 @@ import Education from "./pages/Education";
 import Skills from "./pages/Skills";
 import Service from "./pages/Services";
 import Contact from "./pages/Contact";
-import NoPage from "./pages/NoPage";
+import NoPage from "./pages/Nopage";
 import './index.css';
 
 export default function App() {
