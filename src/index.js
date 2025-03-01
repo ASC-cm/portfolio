@@ -6,7 +6,6 @@ import Education from "./pages/Education";
 import Skills from "./pages/Skills";
 import Service from "./pages/Services";
 import Contact from "./pages/Contact";
-import NoPage from "./pages/Nopage";
 import './index.css';
 
 export default function App() {
@@ -19,7 +18,6 @@ export default function App() {
           <Route path="Service" element={<Service />} />
           <Route path="Education" element={<Education />} />
           <Route path="Contact" element={<Contact />} />
-          <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
