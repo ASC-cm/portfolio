@@ -653,7 +653,7 @@ header {
 
 .service-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(255, 117, 140, 0.3);
+  box-shadow: 0 8px 20px rgba(52, 3, 247, 0.947);
 }
 
 /* Proficiency Badge */
@@ -702,4 +702,18 @@ header {
   font-weight: 600;
   color: gray;
   text-transform: uppercase;
+}
+
+@media (max-width: 760px) {
+  .sign-in-button{
+    display: none;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .sign-in-button{
+    display: none;
+  }
+
 }
