@@ -1,5 +1,5 @@
 import React from 'react';
-import useTypingEffect from '../useTypingEffect'; 
+import useTypingEffect from '../components/useTypingEffect'; 
 import { useNavigate } from "react-router-dom";
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaPython, FaGitAlt } from "react-icons/fa";
 import { SiNextdotjs, SiTailwindcss, SiDjango, SiPostgresql } from "react-icons/si";
@@ -233,7 +233,9 @@ const Home = () => {
               An Technology website, where you can undergo both online/offline
               tech courses.
             </p>
-            <a href="https://github.com/ASC-cm">View Project codes</a>
+            <a href="https://github.com/ASC-cm/my-app.git">
+              View Project codes
+            </a>
           </div>
           <div className="project-card">
             <img
@@ -248,9 +250,12 @@ const Home = () => {
             />
             <h3>Hotel website</h3>
             <p>
-              A complete hotel website with the backend integration via Django_rest_framework.
+              A complete hotel website with the backend integration via
+              Django_rest_framework.
             </p>
-            <a href="https://github.com/ASC-cm">View Project codes</a>
+            <a href="https://github.com/ASC-cm/hotel-website.git">
+              View Project codes
+            </a>
           </div>
           <div className="project-card">
             <img
@@ -264,8 +269,11 @@ const Home = () => {
               className="hover-img"
             />
             <h3>A Blog Website</h3>
-            <p>A News Blog site For adding,editing and deleting blog news, fully interacting with the backkend.</p>
-            <a href="https://github.com/ASC-cm">View Project codes</a>
+            <p>
+              A News Blog site For adding,editing and deleting blog news, fully
+              interacting with the backkend.
+            </p>
+            <a href="https://github.com/ASC-cm/Blog.git">View Project codes</a>
           </div>
         </div>
       </section>
