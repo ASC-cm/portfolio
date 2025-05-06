@@ -394,7 +394,7 @@ header {
 .projects h2 {
   font-size: 2.2rem;
   font-weight: 700;
-  color: #1a1a1a;
+  color: blue;
   text-transform: uppercase;
   letter-spacing: 1px;
   text-align: center;
@@ -502,7 +502,7 @@ header {
   margin: 1.2rem 0 0.5rem;
   font-size: 1.5rem;
   font-weight: 600;
-  color: #222;
+  color: blue;
 }
 
 .project-card p {
@@ -607,7 +607,7 @@ header {
 }
 
 .dashboard-container .header h1 {
-  color: black;
+  color: blue;
   font-size: 28px;
   font-weight: 600;
   text-transform: uppercase;

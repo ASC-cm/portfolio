@@ -16,7 +16,7 @@ body {
   .timeline-title {
     font-size: 2rem;
     margin-top: 2rem; /* Reduced margin */
-    color: black;
+    color: blue;
   }
   
   .timeline-container {

@@ -155,86 +155,52 @@ const Home = () => {
 
       <section className="projects" id="works">
         <h2>My Works</h2>
-        <p>Here are some of my projects hosted on github:</p>
+        <p>Here are some of my recent projects hosted online:</p>
         <div className="projects-grid">
           <div className="project-card">
             <img
-              src="images/work1.png"
-              alt="clothing Website"
-              className="default-img"
-            ></img>
-            <img
-              src="images/work8.png"
-              alt="clothing Website Hover"
-              className="hover-img"
-            ></img>
-            <h3>Clothing E-commerce Website</h3>
-            <p>
-              A website where customers can place order on wears, be it
-              Juwelries, Cloths or Foot-wears and pay with either card or
-              tranfer.
-            </p>
-            <a href="https://github.com/ASC-cm/E-commerce-site.git">
-              View Project codes
-            </a>
-          </div>
-          <div className="project-card">
-            <img
-              src="images/work4.png"
-              alt="Tech Website"
-              className="default-img"
-            />
-            <img
-              src="images/work5.png"
-              alt="Tech Website Hover"
-              className="hover-img"
-            />
-            <h3>Technology Website</h3>
-            <p>
-              A website for talented developers and companies that need there
-              skills, and for people willing or that want to undergo any tech
-              skills.
-            </p>
-            <a href="https://github.com/ASC-cm/my-app.git">
-              View Project codes
-            </a>
-          </div>
-          <div className="project-card">
-            <img
-              src="images/work3.png"
+              src="images/sch1.png"
               alt="resturant Website"
               className="default-img"
             />
             <img
-              src="images/work9.png"
+              src="images/sch2.png"
               alt="resturant Website Hover"
               className="hover-img"
             />
-            <h3>Resturant Website</h3>
+            <h3>School Website</h3>
             <p>
-              A Resturant website where individuals can place order on foods and
-              drinks and get them deliver to them, equally book for a space.
+              A modern school website that is dynamic, user-friendly digital
+              platform designed to enhance communication, engagement, and
+              functionality for students, parents, staff, and the broader
+              community. Built with a clean and responsive design, it ensures
+              seamless accessibility across devices—desktops, tablets, and
+              smartphones.
             </p>
-            <a href="https://github.com/ASC-cm">View Project codes</a>
+            <a href="https://heaven-tan.vercel.app/">View Project Online</a>
           </div>
           <div className="project-card">
             <img
-              src="images/work2.png"
-              alt="Tech Website"
+              src="images/port1.png"
+              alt="portal Website"
               className="default-img"
             />
             <img
-              src="images/work6.png"
-              alt="Tech Website Hover"
+              src="images/port2.png"
+              alt="portal Website Hover"
               className="hover-img"
             />
-            <h3>E-learning Tech Website</h3>
+            <h3>School Portal Website</h3>
             <p>
-              An Technology website, where you can undergo both online/offline
-              tech courses.
+              The school portal that is comprehensive, secure, and modern
+              web-based platform designed to streamline academic and
+              administrative activities for students, staff, and school
+              administrators. It provides centralized access to essential
+              features that support academic performance tracking such as Result
+              Checker.
             </p>
-            <a href="https://github.com/ASC-cm/my-app.git">
-              View Project codes
+            <a href="https://portal-three-topaz.vercel.app/">
+              View Project Online
             </a>
           </div>
           <div className="project-card">
@@ -250,10 +216,61 @@ const Home = () => {
             />
             <h3>Hotel website</h3>
             <p>
-              A complete hotel website with the backend integration via
-              Django_rest_framework.
+              A hotel website that is elegant, responsive, and fully functional
+              digital platform designed to attract guests, streamline bookings,
+              and showcase the unique offerings of a hospitality establishment.
+              It combines visual appeal with practical tools to provide a
+              seamless user experience for travelers and an efficient management
+              system for hotel staff.
             </p>
-            <a href="https://github.com/ASC-cm/hotel-website.git">
+            <a href="https://hotel-website-nine-zeta.vercel.app/">
+              View Project Online
+            </a>
+          </div>
+          <div className="project-card">
+            <img
+              src="images/work4.png"
+              alt="Tech Website"
+              className="default-img"
+            />
+            <img
+              src="images/work5.png"
+              alt="Tech Website Hover"
+              className="hover-img"
+            />
+            <h3>Technology Website</h3>
+            <p>
+              A modern tech website that is sleek, high-performance digital
+              platform tailored for technology companies, startups, product
+              developers, or service providers. It serves as both a showcase of
+              innovation and a central hub for client engagement, product
+              information, and business growth.
+            </p>
+            <a href="https://my-app-ruddy-mu-65.vercel.app/">
+              View Project Online
+            </a>
+          </div>
+          <div className="project-card">
+            <img
+              src="images/work1.png"
+              alt="clothing Website"
+              className="default-img"
+            ></img>
+            <img
+              src="images/work8.png"
+              alt="clothing Website Hover"
+              className="hover-img"
+            ></img>
+            <h3>Clothing E-commerce Website</h3>
+            <p>
+              A modern e-commerce website that is fully responsive, user-centric
+              digital platform designed to facilitate seamless online shopping
+              experiences for customers while providing powerful management
+              tools for store owners. Built with performance, security, and
+              scalability in mind, it supports everything from product discovery
+              to checkout and order tracking.
+            </p>
+            <a href="https://github.com/ASC-cm/E-commerce-site.git">
               View Project codes
             </a>
           </div>
@@ -270,8 +287,12 @@ const Home = () => {
             />
             <h3>A Blog Website</h3>
             <p>
-              A News Blog site For adding,editing and deleting blog news, fully
-              interacting with the backkend.
+              A blog website that is clean, content-focused digital platform
+              designed for writers, influencers, educators, or businesses to
+              publish articles, share insights, and engage with a global
+              audience. It combines aesthetics with functionality to deliver an
+              enjoyable reading experience and strong content management
+              capabilities.
             </p>
             <a href="https://github.com/ASC-cm/Blog.git">View Project codes</a>
           </div>
