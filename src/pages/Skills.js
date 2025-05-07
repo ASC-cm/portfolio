@@ -9,7 +9,10 @@ const Skills = () => {
   const [animate, setAnimate] = useState(false);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({ fullname: "", email: "" });
-  const API_URL = process.env.REACT_APP_API_URL || "http://127.0.0.1:8000/api/submit/";
+ const API_URL =
+   process.env.REACT_APP_API_URL ||
+   "https://backendb-tcy5.onrender.com/api/submit/";
+
 
 
    useEffect(() => {
