@@ -23,7 +23,7 @@ const Skills = () => {
      setLoading(true);
 
      try {
-       await axios.post("http://127.0.0.1:8000/api/submit/", formData);
+       await axios.post("/api/submit/", formData);
        toast.success("Form submitted successfully!");
        setFormData({ fullname: "", email: "" });
      } catch (error) {
