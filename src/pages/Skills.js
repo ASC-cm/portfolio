@@ -9,6 +9,8 @@ const Skills = () => {
   const [animate, setAnimate] = useState(false);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({ fullname: "", email: "" });
+  const API_URL = process.env.REACT_APP_API_URL || "http://127.0.0.1:8000/api/submit/";
+
 
    useEffect(() => {
      setAnimate(true);
@@ -23,7 +25,7 @@ const Skills = () => {
      setLoading(true);
 
      try {
-       await axios.post("/api/submit/", formData);
+       await axios.post(API_URL, formData);
        toast.success("Form submitted successfully!");
        setFormData({ fullname: "", email: "" });
      } catch (error) {
