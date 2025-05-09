@@ -9,38 +9,75 @@ const Skills = () => {
   const [animate, setAnimate] = useState(false);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({ fullname: "", email: "" });
- const API_URL =
-   process.env.REACT_APP_API_URL ||
-   "https://backendb-tcy5.onrender.com/api/submit/";
 
+  const API_URL =
+    process.env.REACT_APP_API_URL ||
+    "https://backendb-tcy5.onrender.com/api/submit/";
 
+  useEffect(() => {
+    setAnimate(true);
+  }, []);
 
-   useEffect(() => {
-     setAnimate(true);
-   }, []);
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
 
-   const handleChange = (e) => {
-     setFormData({ ...formData, [e.target.id]: e.target.value });
-   };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-   const handleSubmit = async (e) => {
-     e.preventDefault();
-     setLoading(true);
+    // Frontend validation
+    if (!formData.fullname || !formData.email) {
+      toast.error("Please fill in all fields");
+      return;
+    }
 
-     try {
-       await axios.post(API_URL, formData);
-       toast.success("Form submitted successfully!");
-       setFormData({ fullname: "", email: "" });
-     } catch (error) {
-       toast.error("Error submitting form. Please try again.");
-     } finally {
-       setLoading(false);
-     }
-   };
+    setLoading(true);
+
+    try {
+      const response = await axios.post(
+        API_URL,
+        {
+          fullname: formData.fullname, // Matches serializer field name
+          email: formData.email, // Matches serializer field name
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (response.status === 201) {
+        toast.success("Message sent successfully!");
+        setFormData({ fullname: "", email: "" });
+      }
+    } catch (error) {
+      console.error("Submission error:", error.response?.data);
+      if (error.response?.data) {
+        // Display backend validation errors if available
+        const errors = Object.values(error.response.data).flat();
+        toast.error(errors.join(" ") || "Submission failed");
+      } else {
+        toast.error("Network error. Please try again.");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <>
-      <ToastContainer />
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <div className="container">
         <div className={`left-section ${animate ? "slide-in-left" : ""}`}>
           <h1>Software Development Skills</h1>
@@ -55,25 +92,14 @@ const Skills = () => {
             <strong>Pick any of my skills below:</strong>
           </p>
           <div className="courses">
+            <div className="course-card">Front/Back End Web Development</div>
             <div className="course-card">
-              Front/ Back End Web Development (Full Stack with JavaScript and
-              Python)
+              Artificial Intelligence and Machine Learning
             </div>
-            <div className="course-card">
-              Artificial Intelligence and Machine Learning (Python Programming)
-            </div>
-            <div className="course-card">
-              Android/ iOS App Development (React-native)
-            </div>
-            <div className="course-card">
-              UI/UX Design (Figma User Interface and User Experience Design)
-            </div>
-            <div className="course-card">
-              DevSecOps Engineering (Cybersecurity and DevOps)
-            </div>
-            <div className="course-card">
-              Data Engineering (Data Analysis for AI and Machine Learning)
-            </div>
+            <div className="course-card">Mobile App Development</div>
+            <div className="course-card">UI/UX Design</div>
+            <div className="course-card">DevSecOps Engineering</div>
+            <div className="course-card">Data Engineering</div>
           </div>
         </div>
         <div className={`right-section ${animate ? "slide-in-right" : ""}`}>
@@ -84,24 +110,34 @@ const Skills = () => {
             <input
               type="text"
               id="fullname"
-              placeholder="Ani Simon Chukwuemeka"
+              placeholder="Your full name"
               value={formData.fullname}
               onChange={handleChange}
               required
+              minLength={2}
             />
 
             <label htmlFor="email">Email</label>
             <input
               type="email"
               id="email"
-              placeholder="anisimon755@gmail.com"
+              placeholder="your.email@example.com"
               value={formData.email}
               onChange={handleChange}
               required
             />
 
-            <button type="submit" className="apply-button" disabled={loading}>
-              {loading ? <ClipLoader size={20} color="#fff" /> : "Submit"}
+            <button
+              type="submit"
+              className="apply-button"
+              disabled={loading}
+              aria-busy={loading}
+            >
+              {loading ? (
+                <ClipLoader size={20} color="#fff" />
+              ) : (
+                "Submit Message"
+              )}
             </button>
           </form>
         </div>
