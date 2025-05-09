@@ -1,69 +1,87 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ClipLoader from "react-spinners/ClipLoader";
 import "../Styles/Skills.css";
 
+// Configure axios once (better to put this in a separate config file)
+const api = axios.create({
+  baseURL:
+    process.env.REACT_APP_API_URL || "https://backendb-tcy5.onrender.com/",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  timeout: 10000, // 10 seconds timeout
+});
+
 const Skills = () => {
   const [animate, setAnimate] = useState(false);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({ fullname: "", email: "" });
 
-  const API_URL =
-    process.env.REACT_APP_API_URL ||
-    "https://backendb-tcy5.onrender.com/api/submit/";
-
   useEffect(() => {
     setAnimate(true);
   }, []);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value });
-  };
+  const handleChange = useCallback((e) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({ ...prev, [id]: value }));
+  }, []);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = useCallback(
+    async (e) => {
+      e.preventDefault();
 
-    // Frontend validation
-    if (!formData.fullname || !formData.email) {
-      toast.error("Please fill in all fields");
-      return;
-    }
+      // Frontend validation
+      if (!formData.fullname.trim() || !formData.email.trim()) {
+        toast.error("Please fill in all fields");
+        return;
+      }
 
-    setLoading(true);
+      // Email validation
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+        toast.error("Please enter a valid email address");
+        return;
+      }
 
-    try {
-      const response = await axios.post(
-        API_URL,
-        {
-          fullname: formData.fullname, // Matches serializer field name
-          email: formData.email, // Matches serializer field name
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
+      setLoading(true);
+
+      try {
+        const response = await api.post("submit/", {
+          fullname: formData.fullname.trim(),
+          email: formData.email.trim(),
+        });
+
+        if (response.status === 201) {
+          toast.success("Message sent successfully!");
+          setFormData({ fullname: "", email: "" });
         }
-      );
+      } catch (error) {
+        console.error("Submission error:", error);
 
-      if (response.status === 201) {
-        toast.success("Message sent successfully!");
-        setFormData({ fullname: "", email: "" });
+        if (error.response) {
+          // Backend validation errors
+          const errors = error.response.data;
+          if (typeof errors === "object") {
+            const errorMessages = Object.values(errors).flat();
+            toast.error(errorMessages.join(" ") || "Submission failed");
+          } else {
+            toast.error(errors || "Submission failed");
+          }
+        } else if (error.request) {
+          // No response received
+          toast.error("Network error. Please check your connection.");
+        } else {
+          // Other errors
+          toast.error("An unexpected error occurred. Please try again.");
+        }
+      } finally {
+        setLoading(false);
       }
-    } catch (error) {
-      console.error("Submission error:", error.response?.data);
-      if (error.response?.data) {
-        // Display backend validation errors if available
-        const errors = Object.values(error.response.data).flat();
-        toast.error(errors.join(" ") || "Submission failed");
-      } else {
-        toast.error("Network error. Please try again.");
-      }
-    } finally {
-      setLoading(false);
-    }
-  };
+    },
+    [formData]
+  );
 
   return (
     <>
@@ -77,6 +95,7 @@ const Skills = () => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
+        theme="colored"
       />
       <div className="container">
         <div className={`left-section ${animate ? "slide-in-left" : ""}`}>
@@ -92,14 +111,18 @@ const Skills = () => {
             <strong>Pick any of my skills below:</strong>
           </p>
           <div className="courses">
-            <div className="course-card">Front/Back End Web Development</div>
-            <div className="course-card">
-              Artificial Intelligence and Machine Learning
-            </div>
-            <div className="course-card">Mobile App Development</div>
-            <div className="course-card">UI/UX Design</div>
-            <div className="course-card">DevSecOps Engineering</div>
-            <div className="course-card">Data Engineering</div>
+            {[
+              "Front/Back End Web Development",
+              "Artificial Intelligence and Machine Learning",
+              "Mobile App Development",
+              "UI/UX Design",
+              "DevSecOps Engineering",
+              "Data Engineering",
+            ].map((skill, index) => (
+              <div key={index} className="course-card">
+                {skill}
+              </div>
+            ))}
           </div>
         </div>
         <div className={`right-section ${animate ? "slide-in-right" : ""}`}>
@@ -115,6 +138,7 @@ const Skills = () => {
               onChange={handleChange}
               required
               minLength={2}
+              maxLength={100}
             />
 
             <label htmlFor="email">Email</label>
@@ -125,12 +149,13 @@ const Skills = () => {
               value={formData.email}
               onChange={handleChange}
               required
+              pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
             />
 
             <button
               type="submit"
               className="apply-button"
-              disabled={loading}
+              disabled={loading || !formData.fullname || !formData.email}
               aria-busy={loading}
             >
               {loading ? (
