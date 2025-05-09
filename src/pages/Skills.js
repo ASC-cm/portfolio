@@ -48,7 +48,7 @@ const Skills = () => {
       setLoading(true);
 
       try {
-        const response = await api.post("submit/", {
+        const response = await api.post("api/submit/", {
           fullname: formData.fullname.trim(),
           email: formData.email.trim(),
         });
