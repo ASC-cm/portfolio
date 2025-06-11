@@ -8,7 +8,7 @@ import "../Styles/Skills.css";
 // Configure axios once (better to put this in a separate config file)
 const api = axios.create({
   baseURL:
-    process.env.REACT_APP_API_URL || "https://backendb-tcy5.onrender.com/",
+    process.env.REACT_APP_API_URL || "http://127.0.0.1:8000/",
   headers: {
     "Content-Type": "application/json",
   },
